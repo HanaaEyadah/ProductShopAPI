@@ -14,6 +14,7 @@ const slugify = require("slugify");
 
 app.post("/products", (req, res) => {
   const id = products[products.length - 1].id + 1;
+  console.log(req.body);
   const slug = slugify(req.body.name, { lower: true });
   const newProduct = { id, slug, ...req.body }; // id, slug are equivalent to id: id, slug: slug
   products.push(newProduct);
