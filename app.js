@@ -14,6 +14,7 @@ passport.use(localStrategy);
 
 app.use("/products", productRoutes);
 app.use(userRoutes);
+
 app.use((_, res, __) => {
   res.status(404).json({ message: "Path not found" });
 });
@@ -23,8 +24,6 @@ app.use((error, req, res, next) => {
     message: error.message || "Internal Server Error",
   });
 });
-
-
 
 const run = async () => {
   try {
